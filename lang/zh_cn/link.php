@@ -77,3 +77,4 @@ $string['link:view'] = 'View LINK';
 $string['expired'] = '不在限定时间内';
 $string['expired_tip'] = '时间限制从{$a}到';
 $string['timerestrict_open'] = '打开时间限制';
+$string['appearance'] = '外观';

@@ -77,3 +77,4 @@ $string['link:view'] = 'View LINK';
 $string['expired'] = 'Time Expried';
 $string['expired_tip'] = 'Time limit from {$a} to ';
 $string['timerestrict_open'] = 'Open time limit';
+$string['appearance'] = 'Appearance';

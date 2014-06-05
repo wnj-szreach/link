@@ -58,7 +58,7 @@ class mod_link_mod_form extends moodleform_mod {
         	$mform->setExpanded('content');
 		}
         //---------------------------外观---------------------------
-        $mform->addElement('header', 'optionssection', get_string('appearance'));
+        $mform->addElement('header', 'optionssection', get_string('appearance', 'mod_link'));
 
         if ($this->current->instance) {
             $options = resourcelib_get_displayoptions(explode(',', $config->displayoptions), $this->current->display);

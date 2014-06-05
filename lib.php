@@ -42,7 +42,8 @@ function link_supports($feature) {
         case FEATURE_GRADE_HAS_GRADE:         return false;
         case FEATURE_GRADE_OUTCOMES:          return false;
         case FEATURE_BACKUP_MOODLE2:          return true;
-        case FEATURE_SHOW_DESCRIPTION:        return true;
+        //case FEATURE_SHOW_DESCRIPTION:        return true;
+        case 'showdescription':				  return true;
 
         default: return null;
     }
@@ -288,10 +289,12 @@ function link_get_coursemodule_info($coursemodule) {
 
     }
 
-    if ($coursemodule->showdescription) {
-        // Convert intro to html. Do not filter cached version, filters run at display time.
-        $info->content = format_module_intro('link', $link, $coursemodule->id, false);
-    }
+	if(isset($coursemodule->showdescription)) {
+		if ($coursemodule->showdescription) {
+			// Convert intro to html. Do not filter cached version, filters run at display time.
+			$info->content = format_module_intro('link', $link, $coursemodule->id, false);
+		}
+	}
 
     return $info;
 }

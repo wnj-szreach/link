@@ -44,7 +44,13 @@ if ($u) {  // Two ways to specify the module
 $course = $DB->get_record('course', array('id'=>$cm->course), '*', MUST_EXIST);
 
 require_course_login($course, true, $cm);
-$context = context_module::instance($cm->id);
+
+if ($CFG->version >= 2011120500) {
+	$context = context_module::instance($cm->id);//2.2和以上
+}else{
+	$context = get_context_instance(CONTEXT_MODULE, $cm->id);//2.0 and 2.1
+}
+
 require_capability('mod/link:view', $context);
 
 add_to_log($course->id, 'link', 'view', 'view.php?id='.$cm->id, $link->id, $cm->id);

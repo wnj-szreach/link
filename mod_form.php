@@ -53,8 +53,10 @@ class mod_link_mod_form extends moodleform_mod {
         $mform->addElement('url', 'externalurl', get_string('externalurl', 'url'), array('size'=>'60'), array('usefilepicker'=>true));// sheep
         $mform->setType('externalurl', PARAM_URL);
         $mform->addRule('externalurl', null, 'required', null, 'client');
-        $mform->setExpanded('content');
 
+		if(method_exists($mform, 'setExpanded')){
+        	$mform->setExpanded('content');
+		}
         //---------------------------外观---------------------------
         $mform->addElement('header', 'optionssection', get_string('appearance'));
 
